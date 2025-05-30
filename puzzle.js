@@ -58,9 +58,11 @@ function runDFS() {
 
   const success = solveDFS(start, x, y, visited, 0, path, 50);
   const output = document.getElementById('output');
-  output.textContent = success
-    ? path.map((b, i) => `Step ${i}:\n${boardToString(b)}`).join('\n\n')
-    : "No solution found (or max depth exceeded)";
+  output.textContent = "Solving with DFS...\n\n" + (
+    success
+      ? path.map((b, i) => `Step ${i}:\n${boardToString(b)}`).join('\n\n')
+      : "No solution found (or max depth exceeded)"
+  );
 }
 
 // ---------- A* ----------
@@ -136,7 +138,9 @@ function runAStar() {
   const path = solveAStar(start, x, y);
 
   const output = document.getElementById('output');
-  output.textContent = path
-    ? path.map((b, i) => `Step ${i}:\n${boardToString(b)}`).join('\n\n')
-    : "No solution found";
+  output.textContent = "Solving with A*...\n\n" + (
+    path
+      ? path.map((b, i) => `Step ${i}:\n${boardToString(b)}`).join('\n\n')
+      : "No solution found"
+  );
 }
